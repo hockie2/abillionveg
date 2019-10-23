@@ -58,3 +58,4 @@ See the documentation here: [https://github.com/calvinmetcalf/copyfiles/blob/mas
 
 ## License
 MIT License. Free use and change.
+=======
