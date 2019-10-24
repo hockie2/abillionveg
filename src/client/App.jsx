@@ -43,6 +43,7 @@ class App extends React.Component {
     this.addRecipeHandler = this.addRecipeHandler.bind(this)
     this.closeRecipeHandler = this.closeRecipeHandler.bind(this)
     this.submitForm = this.submitForm.bind(this)
+    this.onConfirmation = this.onConfirmation.bind(this)
   }
 
   addRecipeHandler(){
@@ -79,16 +80,19 @@ class App extends React.Component {
           };
         });
 
-
-
-
         // const { list, item } = this.state.recipeitems
         // this.setState({ list: [...list, item] })
 
         // console.log(event.target.title.value)
-
     }
 
+    onConfirmation(event){
+        event.preventDefault();
+        console.log('Confirmed!!')
+
+        console.log(event.target)
+
+    }
 
   render() {
 
@@ -97,7 +101,7 @@ class App extends React.Component {
       <div className={styles.main_wrapper}>
         <Header addRecipeHandler={this.addRecipeHandler}/>
         <RecipeList recipeitems={this.state.recipeitems}/>
-        <AddRecipe ref={ref => this.addrecipe_wrapper = ref} closeRecipeHandler={this.closeRecipeHandler} submitForm={this.submitForm} />
+        <AddRecipe ref={ref => this.addrecipe_wrapper = ref} closeRecipeHandler={this.closeRecipeHandler} submitForm={this.submitForm} onConfirmation={this.onConfirmation}/>
 
       </div>
     );

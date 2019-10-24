@@ -119,17 +119,27 @@ form{
 
 .input{
     width:100%;
-    height:40px;
-    margin:10px 0;
+    margin:5px 0;
     display:flex;
     flex-direction:row;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
 
+    h2{
+        margin:0;
+    }
     input{
         margin-left:10px;
         width:60%;
-        height:100%;
+        height:40px;
+        border:1px solid #c6c6c6;
+        padding:0 5px;
+    }
+
+    textarea{
+        margin:0 10px;
+        width:60%;
+        min-height:100px;
         border:1px solid #c6c6c6;
         padding:0 5px;
     }
@@ -149,4 +159,50 @@ form{
     border:0;
     border-radius:5px;
     color:white;
+}
+
+
+
+.recipeconfirmation_wrapper{
+    width:100%;
+    min-height:400px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    border:1px solid red;
+
+
+
+    form{
+        width:100%;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .confirmation_image{
+        width:50%;
+        height:300px;
+        object-fit:cover;
+        margin:10px auto;
+        border:1px solid yellow;
+    }
+
+    .field{
+        width:90%;
+        display:flex;
+        justify-content:center;
+
+        h2{
+            margin-right:10px;
+        }
+
+        input{
+            min-width:70%;
+            padding:5px;
+            margin:10px 0;
+        }
+    }
+
+
 }
