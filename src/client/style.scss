@@ -94,6 +94,12 @@ html, body {
     justify-content:flex-end;
 }
 
+.addRecipeForm{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
 
 .addimage_wrapper{
     width:50%;
@@ -169,8 +175,7 @@ form{
     display:flex;
     flex-direction:column;
     align-items:center;
-    border:1px solid red;
-
+    visibility:hidden;
 
 
     form{
@@ -201,7 +206,16 @@ form{
             min-width:70%;
             padding:5px;
             margin:10px 0;
+            border:0;
         }
+
+        textarea{
+        margin:0 10px;
+        width:60%;
+        min-height:100px;
+        border:0;
+        padding:0 5px;
+    }
     }
 
 

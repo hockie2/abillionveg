@@ -17,11 +17,11 @@ class RecipeConfirmation extends React.Component {
         <form onClick={this.props.onConfirmation}>
             <img src={this.props.addrecipe.url} className={styles.confirmation_image}/>
             <div className={styles.field}><h2>Title</h2><input type='text' name='url' defaultValue={this.props.addrecipe.title}></input></div>
-            <div className={styles.field}><h2>Description</h2><input type='text' name='description' defaultValue={this.props.addrecipe.description}></input></div>
-            <div className={styles.field}><h2>Ingredients</h2><input type='text' name='ingredients' defaultValue={this.props.addrecipe.ingredients}></input></div>
-            <div className={styles.field}><h2>Instructions</h2><input type='text' name='instructions' defaultValue={this.props.addrecipe.instructions}></input></div>
+            <div className={styles.field}><h2>Description</h2><textarea type='text' name='description' placeholder={this.props.addrecipe.description}></textarea></div>
+            <div className={styles.field}><h2>Ingredients</h2><textarea type='text' name='ingredients' placeholder={this.props.addrecipe.ingredients}></textarea></div>
+            <div className={styles.field}><h2>Instructions</h2><textarea type='text' name='instructions' placeholder={this.props.addrecipe.instructions}></textarea></div>
 
-            <button type='submit'>Submit my Recipe</button>
+            <button type='submit'>Confirm Submit</button>
         </form>
       </div>
     );
