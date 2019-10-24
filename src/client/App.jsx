@@ -12,6 +12,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+        addrecipe:{},
       recipeitems: [
         {url:'https://img.taste.com.au/020YqTdQ/taste/2018/05/creamy-chicken-piccata-pasta-137359-1.jpg',
         title:'sdsdsdsd',
@@ -41,6 +42,7 @@ class App extends React.Component {
     };
     this.addRecipeHandler = this.addRecipeHandler.bind(this)
     this.closeRecipeHandler = this.closeRecipeHandler.bind(this)
+    this.submitForm = this.submitForm.bind(this)
   }
 
   addRecipeHandler(){
@@ -56,6 +58,37 @@ class App extends React.Component {
   }
 
 
+  submitForm(event){
+        event.preventDefault();
+        // console.log('HEYYY')
+        // console.log(event.target.title.value)
+
+
+        this.setState({addrecipe:event.target.title.value})
+
+        this.setState(state => {
+          const list = state.recipeitems.concat(state.addrecipe);
+          return {
+            list,
+            addrecipe: {url:'https://mommyshomecooking.com/wp-content/uploads/2018/03/Easy-Whole-30-Chicken-and-Asparagus-Skillet-1.jpg',
+            title:'sdsdsdsd',
+            description:'dddddddddddddd',
+            ingredients:['dddddddd'],
+            instructions:['dddddddddddddddddd']
+            }
+          };
+        });
+
+
+
+
+        // const { list, item } = this.state.recipeitems
+        // this.setState({ list: [...list, item] })
+
+        // console.log(event.target.title.value)
+
+    }
+
 
   render() {
 
@@ -64,7 +97,8 @@ class App extends React.Component {
       <div className={styles.main_wrapper}>
         <Header addRecipeHandler={this.addRecipeHandler}/>
         <RecipeList recipeitems={this.state.recipeitems}/>
-        <AddRecipe ref={ref => this.addrecipe_wrapper = ref} closeRecipeHandler={this.closeRecipeHandler} />
+        <AddRecipe ref={ref => this.addrecipe_wrapper = ref} closeRecipeHandler={this.closeRecipeHandler} submitForm={this.submitForm} />
+
       </div>
     );
   }
