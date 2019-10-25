@@ -37,14 +37,14 @@ html, body {
     width:70%;
     display:flex;
     flex-wrap:wrap;
-    justify-content:space-between;
+    justify-content:flex-start;
 
     .recipe_header{
         width:100%;
     }
 
     .item_wrapper{
-        width:32%;
+        width:32.4%;
         min-height:370px;
         margin:5px;
         box-sizing:border-box;

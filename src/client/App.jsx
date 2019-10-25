@@ -53,7 +53,7 @@ class App extends React.Component {
   }
 
   closeRecipeHandler(){
-    // console.log('Close A Recipe!!!')
+    console.log('Close A Recipe!!!')
     const node = ReactDOM.findDOMNode(this.addrecipe_wrapper);
     node.style.visibility = 'hidden'
 
@@ -62,10 +62,29 @@ class App extends React.Component {
 
     onConfirmation(event){
         event.preventDefault();
-        console.log('Confirmed!!')
+
+        this.setState({addrecipe:{
+            url: event.target.url.value,
+            title: event.target.title.value,
+            description: event.target.description.value,
+            ingredients: event.target.ingredients.value,
+            instructions:event.target.instructions.value
+            }
+        })
+
+
+        let list = this.state.recipeitems.concat(this.state.addrecipe)
+        this.setState({ recipeitems: list })
+
+        console.log(this.state.recipeitems)
+
+
+        this.closeRecipeHandler();
+
     }
 
   render() {
+
 
 
     return (
