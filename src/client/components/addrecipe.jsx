@@ -6,14 +6,18 @@ import RecipeConfirmation from './recipeconfirmation';
 
 import styles from '../style.scss';
 
+
 class AddRecipe extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            addrecipe:{}
+            addrecipe:{},
+            formVisibility:true,
+            recipeConfirmationVisiblity:false
         }
         this.submitForm = this.submitForm.bind(this)
+        this.editForm = this.editForm.bind(this)
     }
 
     submitForm(event){
@@ -28,24 +32,57 @@ class AddRecipe extends React.Component {
         }
 
         this.setState({ addrecipe: recipe })
-        console.log(this.state.addrecipe)
 
-        const node = ReactDOM.findDOMNode(this.addRecipeForm);
-        node.style.visibility = 'hidden'
-        node.style.height = 0;
+        //Hide Unhide Add Recipe Form
+        if(this.state.formVisibility === true){
+            this.setState({formVisibility:false})
+        }
+        else{
+            this.setState({formVisibility:true})
+        }
 
-        const node2 = ReactDOM.findDOMNode(this.confirmationForm);
-        node2.style.visibility = 'visible'
+        //Hide Unhide Recipe Confirmation
+        if(this.state.recipeConfirmationVisiblity === false){
+            this.setState({recipeConfirmationVisiblity:true})
+        }
+        else{
+            this.setState({recipeConfirmationVisiblity:false})
+        }
+
+    }
+
+    editForm(){
+
+        //Hide Unhide Add Recipe Form
+         if(this.state.formVisibility === true){
+            this.setState({formVisibility:false})
+        }
+        else{
+            this.setState({formVisibility:true})
+        }
+
+        //Hide Unhide Recipe Confirmation
+        if(this.state.recipeConfirmationVisiblity === false){
+            this.setState({recipeConfirmationVisiblity:true})
+        }
+        else{
+            this.setState({recipeConfirmationVisiblity:false})
+        }
 
     }
 
 
+
+
   render() {
+
+    let addRecipeForm_class = this.state.formVisibility? styles.addRecipeForm : styles.addRecipeFormHidden
+    let recipeconfirmation_class = this.state.recipeConfirmationVisiblity? styles.recipeconfirmation_wrapper : styles.recipeconfirmation_wrapperHidden
 
     return (
       <div className={styles.addrecipe_wrapper}>
         <div className={styles.xcircle_wrapper}><box-icon name='x-circle' size='lg' onClick={this.props.closeRecipeHandler}/></div>
-        <div className={styles.addRecipeForm} ref={ref => this.addRecipeForm = ref} >
+        <div className={addRecipeForm_class}>
             <h1>Add a Recipe</h1>
             <form onSubmit={this.submitForm}>
                 <div className={styles.addimage_wrapper}><box-icon name='image' size='lg' color='#0079b1'/>Add Photo</div>
@@ -57,7 +94,7 @@ class AddRecipe extends React.Component {
                 <button type='submit'>Submit my Recipe</button>
             </form>
         </div>
-        <RecipeConfirmation addrecipe={this.state.addrecipe} onConfirmation={this.props.onConfirmation} ref={ref => this.confirmationForm = ref}/>
+        <RecipeConfirmation recipeconfirmation_class={recipeconfirmation_class} editForm={this.editForm} addrecipe={this.state.addrecipe} onConfirmation={this.props.onConfirmation}/>
       </div>
     );
   }

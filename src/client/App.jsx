@@ -12,6 +12,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+        addRecipeHandlerVisibility:true,
         addrecipe:{},
       recipeitems: [
         {url:'https://images.immediate.co.uk/production/volatile/sites/2/2019/09/OLI-0919_Everyday-TomatoLemongrassRiceSoup_33265-5aebfd2.jpg?quality=90&resize=940,404',
@@ -42,7 +43,6 @@ class App extends React.Component {
     };
     this.addRecipeHandler = this.addRecipeHandler.bind(this)
     this.closeRecipeHandler = this.closeRecipeHandler.bind(this)
-    this.submitForm = this.submitForm.bind(this)
     this.onConfirmation = this.onConfirmation.bind(this)
   }
 
@@ -60,41 +60,9 @@ class App extends React.Component {
   }
 
 
-  submitForm(event){
-        event.preventDefault();
-        // console.log('HEYYY')
-
-
-        console.log(event.target.value)
-
-
-
-
-        // this.setState(state => {
-        //   const list = state.recipeitems.concat(state.addrecipe);
-        //   return {
-        //     list,
-        //     addrecipe: {url: event.target.url.value,
-        //                 title: event.target.title.value,
-        //                 description: event.target.description.value,
-        //                 ingredients: event.target.ingredients.value,
-        //                 instructions:event.target.instructions.value
-        //     }
-        //   };
-        // });
-
-        // const { list, item } = this.state.recipeitems
-        // this.setState({ list: [...list, item] })
-
-        // console.log(event.target.title.value)
-    }
-
     onConfirmation(event){
         event.preventDefault();
         console.log('Confirmed!!')
-
-
-
     }
 
   render() {
@@ -104,7 +72,7 @@ class App extends React.Component {
       <div className={styles.main_wrapper}>
         <Header addRecipeHandler={this.addRecipeHandler}/>
         <RecipeList recipeitems={this.state.recipeitems}/>
-        <AddRecipe ref={ref => this.addrecipe_wrapper = ref} closeRecipeHandler={this.closeRecipeHandler} submitForm={this.submitForm} onConfirmation={this.onConfirmation}/>
+        <AddRecipe ref={ref => this.addrecipe_wrapper = ref} closeRecipeHandler={this.closeRecipeHandler} onConfirmation={this.onConfirmation}/>
 
       </div>
     );

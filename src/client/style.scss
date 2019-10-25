@@ -85,8 +85,8 @@ html, body {
     border-radius:10px;
     box-shadow:0 0 5px #d5d5d5;
     visibility:hidden;
-
 }
+
 
 .xcircle_wrapper{
     width:100%;
@@ -99,6 +99,10 @@ html, body {
     display:flex;
     flex-direction:column;
     align-items:center;
+}
+
+.addRecipeFormHidden{
+    display:none;
 }
 
 .addimage_wrapper{
@@ -175,8 +179,6 @@ form{
     display:flex;
     flex-direction:column;
     align-items:center;
-    visibility:hidden;
-
 
     form{
         width:100%;
@@ -190,7 +192,6 @@ form{
         height:300px;
         object-fit:cover;
         margin:10px auto;
-        border:1px solid yellow;
     }
 
     .field{
@@ -219,4 +220,8 @@ form{
     }
 
 
+}
+
+.recipeconfirmation_wrapperHidden{
+    display:none;
 }

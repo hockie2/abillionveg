@@ -4,14 +4,10 @@ import styles from '../style.scss';
 
 class RecipeConfirmation extends React.Component {
 
-
-
   render() {
 
-
-
     return (
-      <div className={styles.recipeconfirmation_wrapper}>
+      <div className={this.props.recipeconfirmation_class}>
         <h1>Recipe Confirmation</h1>
 
         <form onClick={this.props.onConfirmation}>
@@ -23,11 +19,10 @@ class RecipeConfirmation extends React.Component {
 
             <button type='submit'>Confirm Submit</button>
         </form>
+        <p onClick={this.props.editForm}>Back to edit</p>
       </div>
     );
   }
 }
-
-
 
 export default RecipeConfirmation;
